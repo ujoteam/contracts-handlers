@@ -1,0 +1,569 @@
+{
+  "contractName": "TestOracle",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getUintPrice",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_price",
+          "type": "uint256"
+        }
+      ],
+      "name": "setPrice",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "price",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "lastUpdated",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    }
+  ],
+  "bytecode": "0x60606040526001600055341561001457600080fd5b426001819055506101578061002a6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806358836e9f1461006757806391b7f5ed14610090578063a035b1fe146100b3578063d0b06f5d146100dc575b600080fd5b341561007257600080fd5b61007a610105565b6040518082815260200191505060405180910390f35b341561009b57600080fd5b6100b1600480803590602001909190505061010e565b005b34156100be57600080fd5b6100c661011f565b6040518082815260200191505060405180910390f35b34156100e757600080fd5b6100ef610125565b6040518082815260200191505060405180910390f35b60008054905090565b426001819055508060008190555050565b60005481565b600154815600a165627a7a7230582023e7bff6bbbc0b5d7aaf4a3106e386cd595d996549263e02888fc16198a397410029",
+  "deployedBytecode": "0x606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806358836e9f1461006757806391b7f5ed14610090578063a035b1fe146100b3578063d0b06f5d146100dc575b600080fd5b341561007257600080fd5b61007a610105565b6040518082815260200191505060405180910390f35b341561009b57600080fd5b6100b1600480803590602001909190505061010e565b005b34156100be57600080fd5b6100c661011f565b6040518082815260200191505060405180910390f35b34156100e757600080fd5b6100ef610125565b6040518082815260200191505060405180910390f35b60008054905090565b426001819055508060008190555050565b60005481565b600154815600a165627a7a7230582023e7bff6bbbc0b5d7aaf4a3106e386cd595d996549263e02888fc16198a397410029",
+  "sourceMap": "132:465:3:-;;;178:1;158:21;;262:104;;;;;;;;315:3;301:11;:17;;;;132:465;;;;;;",
+  "deployedSourceMap": "132:465:3:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;372:80;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;458:137;;;;;;;;;;;;;;;;;;;;;;;;;;158:21;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;229:26;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;372:80;417:4;440:5;;433:12;;372:80;:::o;458:137::-;520:3;506:11;:17;;;;582:6;574:5;:14;;;;458:137;:::o;158:21::-;;;;:::o;229:26::-;;;;:::o",
+  "source": "/*\nUsed in testing to see if the Handler properly fetches it.\nRelies on getPrice() to return a string.\n*/\npragma solidity 0.4.18;\n\n\ncontract TestOracle {\n    uint public price = 1; // 1 eth = 1 usd for simplicity of testing.\n    uint256 public lastUpdated;\n\n    function TestOracle() public {\n        lastUpdated = now; // solhint-disable-line not-rely-on-time\n    }\n\n    function getUintPrice() public view returns (uint) {\n        return price;\n    }\n\n    function setPrice(uint _price) public {\n        lastUpdated = now; // solhint-disable-line not-rely-on-time\n        price = _price;\n    }\n}\n",
+  "sourcePath": "/Users/simondlr/code/ethereum/ujo-contracts/portal/handlers/contracts/TestOracle.sol",
+  "ast": {
+    "attributes": {
+      "absolutePath": "/Users/simondlr/code/ethereum/ujo-contracts/portal/handlers/contracts/TestOracle.sol",
+      "exportedSymbols": {
+        "TestOracle": [
+          327
+        ]
+      }
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            "0.4",
+            ".18"
+          ]
+        },
+        "id": 291,
+        "name": "PragmaDirective",
+        "src": "106:23:3"
+      },
+      {
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            327
+          ],
+          "name": "TestOracle",
+          "scope": 328
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "name": "price",
+              "scope": 327,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint",
+                  "type": "uint256"
+                },
+                "id": 292,
+                "name": "ElementaryTypeName",
+                "src": "158:4:3"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "31",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "number",
+                  "type": "int_const 1",
+                  "value": "1"
+                },
+                "id": 293,
+                "name": "Literal",
+                "src": "178:1:3"
+              }
+            ],
+            "id": 294,
+            "name": "VariableDeclaration",
+            "src": "158:21:3"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "lastUpdated",
+              "scope": 327,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "value": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 295,
+                "name": "ElementaryTypeName",
+                "src": "229:7:3"
+              }
+            ],
+            "id": 296,
+            "name": "VariableDeclaration",
+            "src": "229:26:3"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": true,
+              "modifiers": [
+                null
+              ],
+              "name": "TestOracle",
+              "payable": false,
+              "scope": 327,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 297,
+                "name": "ParameterList",
+                "src": "281:2:3"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 298,
+                "name": "ParameterList",
+                "src": "291:0:3"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 296,
+                              "type": "uint256",
+                              "value": "lastUpdated"
+                            },
+                            "id": 299,
+                            "name": "Identifier",
+                            "src": "301:11:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 341,
+                              "type": "uint256",
+                              "value": "now"
+                            },
+                            "id": 300,
+                            "name": "Identifier",
+                            "src": "315:3:3"
+                          }
+                        ],
+                        "id": 301,
+                        "name": "Assignment",
+                        "src": "301:17:3"
+                      }
+                    ],
+                    "id": 302,
+                    "name": "ExpressionStatement",
+                    "src": "301:17:3"
+                  }
+                ],
+                "id": 303,
+                "name": "Block",
+                "src": "291:75:3"
+              }
+            ],
+            "id": 304,
+            "name": "FunctionDefinition",
+            "src": "262:104:3"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getUintPrice",
+              "payable": false,
+              "scope": 327,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 305,
+                "name": "ParameterList",
+                "src": "393:2:3"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 312,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 306,
+                        "name": "ElementaryTypeName",
+                        "src": "417:4:3"
+                      }
+                    ],
+                    "id": 307,
+                    "name": "VariableDeclaration",
+                    "src": "417:4:3"
+                  }
+                ],
+                "id": 308,
+                "name": "ParameterList",
+                "src": "416:6:3"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "functionReturnParameters": 308
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "overloadedDeclarations": [
+                            null
+                          ],
+                          "referencedDeclaration": 294,
+                          "type": "uint256",
+                          "value": "price"
+                        },
+                        "id": 309,
+                        "name": "Identifier",
+                        "src": "440:5:3"
+                      }
+                    ],
+                    "id": 310,
+                    "name": "Return",
+                    "src": "433:12:3"
+                  }
+                ],
+                "id": 311,
+                "name": "Block",
+                "src": "423:29:3"
+              }
+            ],
+            "id": 312,
+            "name": "FunctionDefinition",
+            "src": "372:80:3"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "setPrice",
+              "payable": false,
+              "scope": 327,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_price",
+                      "scope": 326,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 313,
+                        "name": "ElementaryTypeName",
+                        "src": "476:4:3"
+                      }
+                    ],
+                    "id": 314,
+                    "name": "VariableDeclaration",
+                    "src": "476:11:3"
+                  }
+                ],
+                "id": 315,
+                "name": "ParameterList",
+                "src": "475:13:3"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 316,
+                "name": "ParameterList",
+                "src": "496:0:3"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 296,
+                              "type": "uint256",
+                              "value": "lastUpdated"
+                            },
+                            "id": 317,
+                            "name": "Identifier",
+                            "src": "506:11:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 341,
+                              "type": "uint256",
+                              "value": "now"
+                            },
+                            "id": 318,
+                            "name": "Identifier",
+                            "src": "520:3:3"
+                          }
+                        ],
+                        "id": 319,
+                        "name": "Assignment",
+                        "src": "506:17:3"
+                      }
+                    ],
+                    "id": 320,
+                    "name": "ExpressionStatement",
+                    "src": "506:17:3"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 294,
+                              "type": "uint256",
+                              "value": "price"
+                            },
+                            "id": 321,
+                            "name": "Identifier",
+                            "src": "574:5:3"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 314,
+                              "type": "uint256",
+                              "value": "_price"
+                            },
+                            "id": 322,
+                            "name": "Identifier",
+                            "src": "582:6:3"
+                          }
+                        ],
+                        "id": 323,
+                        "name": "Assignment",
+                        "src": "574:14:3"
+                      }
+                    ],
+                    "id": 324,
+                    "name": "ExpressionStatement",
+                    "src": "574:14:3"
+                  }
+                ],
+                "id": 325,
+                "name": "Block",
+                "src": "496:99:3"
+              }
+            ],
+            "id": 326,
+            "name": "FunctionDefinition",
+            "src": "458:137:3"
+          }
+        ],
+        "id": 327,
+        "name": "ContractDefinition",
+        "src": "132:465:3"
+      }
+    ],
+    "id": 328,
+    "name": "SourceUnit",
+    "src": "106:492:3"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2018-02-15T11:45:42.522Z"
+}
