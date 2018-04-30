@@ -1,8 +1,10 @@
-pragma solidity 0.4.19;
-
+pragma solidity ^0.4.21; //solhint-disable-line
 import "./IUSDETHOracle.sol";
 
 
+// Interface for Recipient.
+// NOTE: Does not currently support ERC165 [for interface signature checking].
+// Future Handler Deployments Will Incorporate This.
 contract IRecipient {
     function receiveNotification(string _cid,
     address _oracle,
@@ -20,6 +22,8 @@ contract ETHUSDHandler {
     address[] _beneficiaries,
     uint256[] _amounts,
     address[] _notifiers) public payable {
+
+        // checks if the payment isn't egregiously malformed.
         require(_beneficiaries.length == _amounts.length);
 
         if (msg.value == 0) {
@@ -36,8 +40,6 @@ contract ETHUSDHandler {
                 _beneficiaries[i].transfer(_amounts[i]);
             }
         }
-
-        // if a transfer fails, should the whole tx fail?
 
         IUSDETHOracle oracle = IUSDETHOracle(_oracle);
         uint256 ethUSD = oracle.getUintPrice();
@@ -65,10 +67,10 @@ contract ETHUSDHandler {
 
     event LogPayment(string cid,
     address oracle,
-    uint256 ethUSD,
-    uint256 value,
+    uint256 indexed ethUSD,
+    uint256 indexed value,
     address issuer,
-    address buyer,
+    address indexed buyer,
     address[] beneficiaries,
     uint256[] amounts);
 

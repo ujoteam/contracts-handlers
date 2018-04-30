@@ -2,7 +2,7 @@
 Used in testing to see if the Handler properly fetches it.
 Relies on getPrice() to return a string.
 */
-pragma solidity 0.4.19;
+pragma solidity ^0.4.21;
 
 
 contract TestOracle {

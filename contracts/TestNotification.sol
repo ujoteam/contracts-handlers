@@ -1,3 +1,4 @@
+pragma solidity ^0.4.21; //solhint-disable-line
 
 contract TestNotification {
 
@@ -46,6 +47,4 @@ contract TestNotification {
     function getMinted(uint256 _tokenId) public view returns(uint256) {
         return additionalData[_tokenId].minted;
     }
-
-
 }
