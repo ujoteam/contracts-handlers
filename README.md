@@ -1,5 +1,9 @@
 ## Handlers
 
+[![codecov](https://codecov.io/gh/UjoTeam/contracts-handlers/branch/master/graph/badge.svg)](https://codecov.io/gh/UjoTeam/contracts-handlers)  
+[![CircleCI](https://circleci.com/gh/UjoTeam/contracts-handlers.svg?style=svg)](https://circleci.com/gh/UjoTeam/contracts-handlers)  
+
+
 These contracts are responsible for handling licensing payments.
 
 It takes in a payment and disbursed the funds according to the specified inputs towards a specific license [specified by a CID].
