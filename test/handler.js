@@ -34,7 +34,7 @@ contract('EthUSDHandler', (accounts) => {
 
   it('should transfer money to one beneficiary (buyer == msg.sender)', async () => {
     const beneficiarybalance = await web3.eth.getBalance(accounts[0]);
-    const twoEther = web3.utils.toBN(web3.utils.toWei('2', 'ether'))
+    const twoEther = web3.utils.toBN(web3.utils.toWei('2', 'ether'));
 
     await handler.pay(
       'cid',
