@@ -2,14 +2,14 @@
 Used in testing to see if the Handler properly fetches it.
 Relies on getPrice() to return a string.
 */
-pragma solidity ^0.4.21;
+pragma solidity ^0.5.0;
 
 
 contract TestOracle {
     uint public price = 1; // 1 eth = 1 usd for simplicity of testing.
     uint256 public lastUpdated;
 
-    function TestOracle() public {
+    constructor() public {
         lastUpdated = now; // solhint-disable-line not-rely-on-time
     }
 

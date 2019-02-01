@@ -1,4 +1,4 @@
-pragma solidity ^0.4.21; //solhint-disable-line
+pragma solidity ^0.5.0; //solhint-disable-line
 
 contract TestNotification {
 
@@ -13,11 +13,11 @@ contract TestNotification {
         uint256 minted;
     }
 
-    function receiveNotification(string _cid,
+    function receiveNotification(string memory _cid,
     address _oracle,
     address _buyer,
-    address[] _beneficiaries,
-    uint256[] _amounts) public {
+    address[] memory _beneficiaries,
+    uint256[] memory _amounts) public {
         AdditionalTokenData memory aData;
         aData.cid = _cid;
         aData.beneficiaries = _beneficiaries;
@@ -28,15 +28,15 @@ contract TestNotification {
         counter += 1; // every new token gets a new ID
     }
 
-    function getCid(uint256 _tokenId) public view returns (string) {
+    function getCid(uint256 _tokenId) public view returns (string memory) {
         return additionalData[_tokenId].cid;
     }
 
-    function getBeneficiaries(uint256 _tokenId) public view returns (address[]) {
+    function getBeneficiaries(uint256 _tokenId) public view returns (address[] memory) {
         return additionalData[_tokenId].beneficiaries;
     }
 
-    function getAmounts(uint256 _tokenId) public view returns (uint256[]) {
+    function getAmounts(uint256 _tokenId) public view returns (uint256[] memory) {
         return additionalData[_tokenId].amounts;
     }
 
